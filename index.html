@@ -20,12 +20,14 @@
       color: #1a1a1a;
       background-color: #f8f9fa;
       margin: 0;
+      overflow-x: hidden;
     }
 
     .page {
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      overflow-x: hidden;
     }
 
     .container {
@@ -50,10 +52,12 @@
       margin-bottom: 1.5rem;
       color: #1a1a1a;
       font-weight: 700;
+      word-wrap: break-word;
     }
 
     main {
       flex: 1;
+      overflow-x: hidden;
     }
 
     a {
@@ -85,12 +89,14 @@
       font-size: 1.25rem;
       font-weight: 700;
       color: #4361EE;
+      white-space: nowrap;
     }
 
     .nav-menu {
       display: flex;
       gap: 2rem;
       list-style: none;
+      flex-wrap: wrap;
     }
 
     .nav-link {
@@ -98,6 +104,7 @@
       padding: 0.5rem 0;
       transition: color 0.3s ease;
       font-weight: 500;
+      white-space: nowrap;
     }
 
     .nav-link:hover {
@@ -108,7 +115,7 @@
     /* CSS:HERO-START */
     .section-hero {
       background: linear-gradient(135deg, #4361EE 0%, #667EEA 100%);
-      padding: 120px 0 100px;
+      padding: 100px 0 80px;
       text-align: center;
       position: relative;
     }
@@ -124,6 +131,7 @@
       color: #ffffff;
       font-weight: 800;
       line-height: 1.2;
+      word-wrap: break-word;
     }
 
     .hero-text {
@@ -142,6 +150,7 @@
       background-color: rgba(255, 255, 255, 0.1);
       border-left: 3px solid #ffffff;
       border-radius: 4px;
+      word-wrap: break-word;
     }
     /* CSS:HERO-END */
 
@@ -192,6 +201,7 @@
       position: relative;
       color: #2d3748;
       line-height: 1.7;
+      word-wrap: break-word;
     }
 
     .highlight-item::before {
@@ -298,6 +308,7 @@
       line-height: 1.6;
       position: relative;
       padding-left: 1.5rem;
+      word-wrap: break-word;
     }
 
     .skill-item::before {
@@ -351,6 +362,7 @@
       color: #1a1a1a;
       margin-bottom: 0.75rem;
       font-weight: 700;
+      word-wrap: break-word;
     }
 
     .project-description {
@@ -385,6 +397,7 @@
       color: #4361EE;
       font-weight: 600;
       transition: color 0.3s ease;
+      word-break: break-word;
     }
 
     .project-link:hover {
@@ -442,6 +455,7 @@
 
     .contact-info {
       flex: 1;
+      min-width: 0;
     }
 
     .contact-label {
@@ -454,6 +468,8 @@
     .contact-value {
       color: #4a5568;
       font-size: 0.9375rem;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
     }
     /* CSS:CONTACT-END */
 
@@ -469,7 +485,132 @@
     /* CSS:FOOTER-END */
 
     /* CSS:RWD-START */
-    @media (max-width: 767px) {
+    /* 極小螢幕優化 - 320px */
+    @media (max-width: 374px) {
+      body {
+        font-size: 14px;
+      }
+
+      .container {
+        padding: 0 16px;
+      }
+
+      .nav {
+        padding: 0.75rem 16px;
+      }
+
+      .nav-brand {
+        font-size: 1rem;
+      }
+
+      .nav-menu {
+        gap: 0.75rem;
+        font-size: 0.8125rem;
+      }
+
+      .section {
+        padding: 40px 0;
+      }
+
+      .section-hero {
+        padding: 80px 0 60px;
+      }
+
+      .hero-title {
+        font-size: 1.75rem;
+      }
+
+      .hero-text {
+        font-size: 1rem;
+      }
+
+      .hero-note {
+        font-size: 0.8125rem;
+        padding: 0.875rem;
+      }
+
+      .section-title {
+        font-size: 1.5rem;
+      }
+
+      .about-intro,
+      .about-background {
+        font-size: 1rem;
+      }
+
+      .about-highlights {
+        padding: 1.25rem;
+      }
+
+      .highlights-title {
+        font-size: 1.125rem;
+      }
+
+      .btn {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.9375rem;
+        width: 100%;
+      }
+
+      .skill-category {
+        padding: 1.25rem;
+      }
+
+      .category-title {
+        font-size: 1.125rem;
+      }
+
+      .skill-item {
+        font-size: 0.9375rem;
+        padding-left: 1.25rem;
+      }
+
+      .project-content {
+        padding: 1.25rem;
+      }
+
+      .project-title {
+        font-size: 1.125rem;
+      }
+
+      .project-description {
+        font-size: 0.9375rem;
+      }
+
+      .tag {
+        font-size: 0.8125rem;
+        padding: 0.3125rem 0.75rem;
+      }
+
+      .project-link {
+        font-size: 0.9375rem;
+      }
+
+      .contact-intro {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .contact-item {
+        padding: 1.25rem;
+        gap: 1rem;
+      }
+
+      .contact-icon {
+        font-size: 1.75rem;
+      }
+
+      .contact-label {
+        font-size: 0.9375rem;
+      }
+
+      .contact-value {
+        font-size: 0.875rem;
+      }
+    }
+
+    /* 小螢幕 - 375px 到 767px */
+    @media (min-width: 375px) and (max-width: 767px) {
       .nav-menu {
         gap: 1rem;
         font-size: 0.875rem;
@@ -490,8 +631,13 @@
       .section {
         padding: 50px 0;
       }
+
+      .btn {
+        width: 100%;
+      }
     }
 
+    /* 平板及以上 - 768px+ */
     @media (min-width: 768px) {
       .section {
         padding: 80px 0;
@@ -545,8 +691,13 @@
         grid-template-columns: repeat(2, 1fr);
         gap: 1.5rem;
       }
+
+      .btn {
+        width: auto;
+      }
     }
 
+    /* 大螢幕 - 1440px+ */
     @media (min-width: 1440px) {
       .hero-title {
         font-size: 4rem;
@@ -582,7 +733,6 @@
             <h1 class="hero-title">打造優質前端體驗</h1>
             <p class="hero-text">我是一位專注於使用者體驗的前端開發工程師，擅長將設計轉化為高品質的網頁應用程式。</p>
             <p class="hero-text">歡迎瀏覽我的作品集，了解我的技術專長與開發經驗。</p>
-            
           </div>
         </div>
       </section>
@@ -613,9 +763,7 @@
                 <a href="#contact" class="btn btn-secondary">聯絡我</a>
               </div>
             </div>
-            <div class="about-image">
-              <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=800&fit=crop" alt="專注於螢幕前撰寫程式碼的開發者工作情境" loading="lazy">
-            </div>
+          
           </div>
         </div>
       </section>
