@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hotoul· 前端開發工程師 | Frontend Developer Portfolio</title>
-  <meta name="description" content="陳品睿的個人品牌網站，展示前端開發技能、專業背景、精選作品集，並提供完整的聯絡方式。歡迎瞭解我的開發經驗與技術專長。">
+  <title>Hotsoul · 前端開發工程師 | Frontend Developer Portfolio</title>
+  <meta name="description" content="Hotsoul的個人品牌網站，展示前端開發技能、專業背景、精選作品集，並提供完整的聯絡方式。歡迎瞭解我的開發經驗與技術專長。">
   
   <style>
     /* CSS:BASE-START */
@@ -147,18 +147,98 @@
       background-color: #0d1b2a;
     }
 
-    .about-placeholder {
+    .about-content {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .about-text {
+      flex: 1;
+    }
+
+    .about-intro,
+    .about-background {
+      margin-bottom: 1.5rem;
       color: #b0bec5;
       line-height: 1.8;
     }
 
-    .about-note {
-      margin-top: 1.5rem;
-      padding: 1rem;
-      background-color: rgba(102, 178, 255, 0.05);
-      border-left: 3px solid #66b2ff;
-      font-size: 0.875rem;
-      color: #78909c;
+    .about-highlights {
+      margin-bottom: 2rem;
+    }
+
+    .highlights-title {
+      font-size: 1.25rem;
+      color: #66b2ff;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .highlights-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .highlight-item {
+      padding: 0.75rem 0 0.75rem 1.5rem;
+      position: relative;
+      color: #e0e0e0;
+      line-height: 1.6;
+    }
+
+    .highlight-item::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: #66b2ff;
+      font-weight: bold;
+    }
+
+    .about-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+
+    .btn-primary {
+      background-color: #66b2ff;
+      color: #0a1929;
+    }
+
+    .btn-primary:hover {
+      background-color: #4d9cff;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: #66b2ff;
+      border: 2px solid #66b2ff;
+    }
+
+    .btn-secondary:hover {
+      background-color: rgba(102, 178, 255, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .about-image {
+      flex: 1;
+    }
+
+    .about-image img {
+      border-radius: 8px;
+      width: 100%;
+      object-fit: cover;
     }
     /* CSS:ABOUT-END */
 
@@ -167,18 +247,45 @@
       background-color: #1b263b;
     }
 
-    .skills-placeholder {
-      color: #b0bec5;
-      line-height: 1.8;
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
     }
 
-    .skills-note {
-      margin-top: 1.5rem;
-      padding: 1rem;
-      background-color: rgba(102, 178, 255, 0.05);
-      border-left: 3px solid #66b2ff;
-      font-size: 0.875rem;
-      color: #78909c;
+    .skill-category {
+      background-color: rgba(13, 27, 42, 0.6);
+      padding: 1.5rem;
+      border-radius: 8px;
+      border: 1px solid rgba(102, 178, 255, 0.2);
+    }
+
+    .category-title {
+      font-size: 1.25rem;
+      color: #66b2ff;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .skill-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .skill-item {
+      padding: 0.625rem 0;
+      color: #e0e0e0;
+      line-height: 1.6;
+      position: relative;
+      padding-left: 1.25rem;
+    }
+
+    .skill-item::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: #66b2ff;
+      font-weight: bold;
     }
     /* CSS:SKILLS-END */
 
@@ -187,18 +294,77 @@
       background-color: #0d1b2a;
     }
 
-    .projects-placeholder {
-      color: #b0bec5;
-      line-height: 1.8;
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
     }
 
-    .projects-note {
-      margin-top: 1.5rem;
-      padding: 1rem;
-      background-color: rgba(102, 178, 255, 0.05);
-      border-left: 3px solid #66b2ff;
+    .project-card {
+      background-color: rgba(27, 38, 59, 0.4);
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid rgba(102, 178, 255, 0.2);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(102, 178, 255, 0.5);
+    }
+
+    .project-image img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .project-content {
+      padding: 1.5rem;
+    }
+
+    .project-title {
+      font-size: 1.375rem;
+      color: #66b2ff;
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+    }
+
+    .project-description {
+      color: #b0bec5;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .tag {
+      background-color: rgba(102, 178, 255, 0.15);
+      color: #66b2ff;
+      padding: 0.25rem 0.75rem;
+      border-radius: 4px;
       font-size: 0.875rem;
-      color: #78909c;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .project-link {
+      color: #66b2ff;
+      text-decoration: underline;
+      transition: color 0.3s ease;
+    }
+
+    .project-link:hover {
+      color: #4d9cff;
     }
     /* CSS:PROJECTS-END */
 
@@ -207,18 +373,60 @@
       background-color: #1b263b;
     }
 
-    .contact-placeholder {
+    .contact-intro {
+      text-align: center;
       color: #b0bec5;
-      line-height: 1.8;
+      margin-bottom: 2.5rem;
+      font-size: 1.125rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    .contact-note {
-      margin-top: 1.5rem;
-      padding: 1rem;
-      background-color: rgba(102, 178, 255, 0.05);
-      border-left: 3px solid #66b2ff;
-      font-size: 0.875rem;
-      color: #78909c;
+    .contact-methods {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      background-color: rgba(13, 27, 42, 0.6);
+      padding: 1.5rem;
+      border-radius: 8px;
+      border: 1px solid rgba(102, 178, 255, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .contact-item:hover {
+      border-color: rgba(102, 178, 255, 0.5);
+      transform: translateY(-2px);
+      background-color: rgba(13, 27, 42, 0.8);
+    }
+
+    .contact-icon {
+      font-size: 2rem;
+      flex-shrink: 0;
+    }
+
+    .contact-info {
+      flex: 1;
+    }
+
+    .contact-label {
+      font-size: 1rem;
+      color: #66b2ff;
+      margin-bottom: 0.25rem;
+      font-weight: 600;
+    }
+
+    .contact-value {
+      color: #e0e0e0;
+      font-size: 0.9375rem;
     }
     /* CSS:CONTACT-END */
 
@@ -273,6 +481,37 @@
       .container {
         padding: 0 40px;
       }
+
+      .about-content {
+        flex-direction: row;
+        align-items: center;
+        gap: 3rem;
+      }
+
+      .about-text {
+        flex: 1.2;
+      }
+
+      .about-image {
+        flex: 1;
+      }
+
+      .about-image img {
+        max-height: 500px;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .contact-methods {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
     }
 
     @media (min-width: 1440px) {
@@ -287,7 +526,7 @@
   <div class="page">
     <header class="site-header">
       <nav class="nav">
-        <div class="nav-brand">陳品睿 · Frontend Dev</div>
+        <div class="nav-brand">Hotsoul · Frontend Dev</div>
         <ul class="nav-menu">
           <li><a href="#hero" class="nav-link">首頁</a></li>
           <li><a href="#about" class="nav-link">關於我</a></li>
@@ -306,9 +545,7 @@
             <h1 class="hero-title">打造優質前端體驗</h1>
             <p class="hero-text">我是一位專注於使用者體驗的前端開發工程師，擅長將設計轉化為高品質的網頁應用程式。</p>
             <p class="hero-text">歡迎瀏覽我的作品集，了解我的技術專長與開發經驗。</p>
-            <div class="hero-note">
-              <strong>開發者提示：</strong>這裡是 Hero 區的占位內容。之後會用 Section SDD 的 Prompt 產生正式文案與版面（包含一句話自我介紹、核心職稱、行動呼籲按鈕等），請把新的 section 程式碼整段貼在 SECTION:HERO-START 與 SECTION:HERO-END 註解中間，完全取代這一區。
-            </div>
+            
           </div>
         </div>
       </section>
@@ -318,10 +555,30 @@
       <section id="about" class="section section-about" aria-labelledby="about-heading">
         <div class="container">
           <h2 id="about-heading" class="section-title">關於我</h2>
-          <p class="about-placeholder">這裡是 About 區的占位內容。未來這個區塊會包含個人背景介紹、工作經歷、教育背景、興趣愛好等完整資訊。</p>
-          <p class="about-placeholder">可能會搭配個人形象照片、時間軸、或是左右分欄的排版設計。</p>
-          <div class="about-note">
-            <strong>開發者提示：</strong>之後會用 Section SDD 的 Prompt 產生更完整的 About 區內容與版面設計，請把新的 section 程式碼整段貼在 SECTION:ABOUT-START 與 SECTION:ABOUT-END 註解中間，完全取代這一區。
+          <div class="about-content">
+            <div class="about-text">
+              <p class="about-intro">
+                我是一位前端開發者，同時也從事設計與教學工作。擅長將複雜的技術概念轉化為易懂的學習內容，並透過接案累積實戰經驗。主要技能包括 HTML、CSS、JavaScript，以及現代前端框架的應用與介面設計。
+              </p>
+              <p class="about-background">
+                我相信良好的溝通是專案成功的關鍵。在教學與合作過程中，我習慣把複雜的問題拆解成清晰的步驟，用簡單的方式說明技術細節。這種方法不僅幫助學員快速上手，也讓團隊協作更加順暢。
+              </p>
+              <div class="about-highlights">
+                <h3 class="highlights-title">我可以幫上什麼忙</h3>
+                <ul class="highlights-list">
+                  <li class="highlight-item">打造符合品牌形象的響應式網站，確保各裝置都有良好體驗</li>
+                  <li class="highlight-item">將設計稿精準還原為高品質的前端程式碼</li>
+                  <li class="highlight-item">提供前端技術教學與諮詢，協助團隊提升開發效率</li>
+                </ul>
+              </div>
+              <div class="about-actions">
+                <a href="#projects" class="btn btn-primary">查看作品集</a>
+                <a href="#contact" class="btn btn-secondary">聯絡我</a>
+              </div>
+            </div>
+            <div class="about-image">
+              <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=800&fit=crop" alt="專注於螢幕前撰寫程式碼的開發者工作情境" loading="lazy">
+            </div>
           </div>
         </div>
       </section>
@@ -331,10 +588,34 @@
       <section id="skills" class="section section-skills" aria-labelledby="skills-heading">
         <div class="container">
           <h2 id="skills-heading" class="section-title">技能專長</h2>
-          <p class="skills-placeholder">這裡是 Skills 區的占位內容。未來會展示前端開發相關的技術技能，例如：HTML、CSS、JavaScript、React、Vue.js 等框架與工具。</p>
-          <p class="skills-placeholder">可能會使用卡片式排版、圖示搭配、或是技能熟練度的視覺化呈現。</p>
-          <div class="skills-note">
-            <strong>開發者提示：</strong>之後會用 Section SDD 的 Prompt 產生更完整的 Skills 區內容與版面設計，請把新的 section 程式碼整段貼在 SECTION:SKILLS-START 與 SECTION:SKILLS-END 註解中間，完全取代這一區。
+          <div class="skills-grid">
+            <div class="skill-category">
+              <h3 class="category-title">前端核心</h3>
+              <ul class="skill-list">
+                <li class="skill-item">HTML5 語意化標籤與無障礙設計</li>
+                <li class="skill-item">CSS3 進階排版與動畫效果</li>
+                <li class="skill-item">JavaScript ES6+ 與非同步處理</li>
+                <li class="skill-item">響應式網頁設計（RWD）</li>
+              </ul>
+            </div>
+            <div class="skill-category">
+              <h3 class="category-title">框架與工具</h3>
+              <ul class="skill-list">
+                <li class="skill-item">React.js 元件化開發</li>
+                <li class="skill-item">Vue.js 與狀態管理</li>
+                <li class="skill-item">Git 版本控制與協作</li>
+                <li class="skill-item">Webpack / Vite 建置工具</li>
+              </ul>
+            </div>
+            <div class="skill-category">
+              <h3 class="category-title">設計與溝通</h3>
+              <ul class="skill-list">
+                <li class="skill-item">Figma / Adobe XD 設計稿協作</li>
+                <li class="skill-item">UI/UX 設計原則應用</li>
+                <li class="skill-item">技術文件撰寫與教學</li>
+                <li class="skill-item">跨團隊溝通與專案管理</li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
@@ -344,10 +625,63 @@
       <section id="projects" class="section section-projects" aria-labelledby="projects-heading">
         <div class="container">
           <h2 id="projects-heading" class="section-title">作品集</h2>
-          <p class="projects-placeholder">這裡是 Projects 區的占位內容。未來會展示個人開發的專案作品，包含專案名稱、專案描述、使用技術、專案連結等資訊。</p>
-          <p class="projects-placeholder">可能會使用網格式卡片排版，每個專案搭配預覽圖片、技術標籤、以及前往專案或 GitHub 的連結。</p>
-          <div class="projects-note">
-            <strong>開發者提示：</strong>之後會用 Section SDD 的 Prompt 產生更完整的 Projects 區內容與版面設計，請把新的 section 程式碼整段貼在 SECTION:PROJECTS-START 與 SECTION:PROJECTS-END 註解中間，完全取代這一區。
+          <div class="projects-grid">
+            <article class="project-card">
+              <div class="project-image">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop" alt="電商網站專案展示介面" loading="lazy">
+              </div>
+              <div class="project-content">
+                <h3 class="project-title">響應式電商網站</h3>
+                <p class="project-description">打造符合現代設計趨勢的購物平台，整合購物車、會員系統與金流串接，提供流暢的購物體驗。</p>
+                <div class="project-tags">
+                  <span class="tag">React</span>
+                  <span class="tag">TypeScript</span>
+                  <span class="tag">Tailwind CSS</span>
+                </div>
+                <div class="project-links">
+                  <a href="https://github.com/hotsoul" class="project-link">查看程式碼</a>
+                  <a href="https://demo.example.com" class="project-link">線上展示</a>
+                </div>
+              </div>
+            </article>
+            
+            <article class="project-card">
+              <div class="project-image">
+                <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&h=500&fit=crop" alt="任務管理工具介面展示" loading="lazy">
+              </div>
+              <div class="project-content">
+                <h3 class="project-title">團隊協作管理工具</h3>
+                <p class="project-description">開發直覺化的任務管理系統，支援即時協作、拖曳排序與進度追蹤，提升團隊工作效率。</p>
+                <div class="project-tags">
+                  <span class="tag">Vue.js</span>
+                  <span class="tag">Pinia</span>
+                  <span class="tag">Firebase</span>
+                </div>
+                <div class="project-links">
+                  <a href="https://github.com/hotsoul" class="project-link">查看程式碼</a>
+                  <a href="https://demo.example.com" class="project-link">線上展示</a>
+                </div>
+              </div>
+            </article>
+            
+            <article class="project-card">
+              <div class="project-image">
+                <img src="https://images.unsplash.com/photo-1512486130939-2c4f79935e4f?w=800&h=500&fit=crop" alt="個人部落格網站介面" loading="lazy">
+              </div>
+              <div class="project-content">
+                <h3 class="project-title">技術部落格平台</h3>
+                <p class="project-description">建立以內容為核心的部落格系統，支援 Markdown 編輯、標籤分類與搜尋功能，優化閱讀體驗。</p>
+                <div class="project-tags">
+                  <span class="tag">Next.js</span>
+                  <span class="tag">MDX</span>
+                  <span class="tag">CSS Modules</span>
+                </div>
+                <div class="project-links">
+                  <a href="https://github.com/hotsoul" class="project-link">查看程式碼</a>
+                  <a href="https://demo.example.com" class="project-link">線上展示</a>
+                </div>
+              </div>
+            </article>
           </div>
         </div>
       </section>
@@ -357,10 +691,39 @@
       <section id="contact" class="section section-contact" aria-labelledby="contact-heading">
         <div class="container">
           <h2 id="contact-heading" class="section-title">聯絡我</h2>
-          <p class="contact-placeholder">這裡是 Contact 區的占位內容。未來會提供多種聯絡方式，例如：Email、電話、GitHub、LinkedIn、或是其他社群媒體連結。</p>
-          <p class="contact-placeholder">可能會使用圖示搭配聯絡資訊的清單呈現，或是簡單的聯絡表單（如果需要的話）。</p>
-          <div class="contact-note">
-            <strong>開發者提示：</strong>之後會用 Section SDD 的 Prompt 產生更完整的 Contact 區內容與版面設計，請把新的 section 程式碼整段貼在 SECTION:CONTACT-START 與 SECTION:CONTACT-END 註解中間，完全取代這一區。範例連結格式：<a href="mailto:hello@example.com">Email</a>、<a href="tel:+886900000000">電話</a>、<a href="https://github.com/yourname">GitHub</a>、<a href="https://www.linkedin.com/in/yourname">LinkedIn</a>。
+          <p class="contact-intro">歡迎與我聯繫！無論是專案合作、技術諮詢或是單純交流，都很樂意與您對話。</p>
+          <div class="contact-methods">
+            <a href="mailto:hotsoul.dev@example.com" class="contact-item">
+              <div class="contact-icon">📧</div>
+              <div class="contact-info">
+                <h3 class="contact-label">Email</h3>
+                <p class="contact-value">hotsoul.dev@example.com</p>
+              </div>
+            </a>
+            
+            <a href="https://github.com/hotsoul" class="contact-item">
+              <div class="contact-icon">💻</div>
+              <div class="contact-info">
+                <h3 class="contact-label">GitHub</h3>
+                <p class="contact-value">github.com/hotsoul</p>
+              </div>
+            </a>
+            
+            <a href="https://www.linkedin.com/in/hotsoul" class="contact-item">
+              <div class="contact-icon">💼</div>
+              <div class="contact-info">
+                <h3 class="contact-label">LinkedIn</h3>
+                <p class="contact-value">linkedin.com/in/hotsoul</p>
+              </div>
+            </a>
+            
+            <a href="tel:+886912345678" class="contact-item">
+              <div class="contact-icon">📱</div>
+              <div class="contact-info">
+                <h3 class="contact-label">電話</h3>
+                <p class="contact-value">+886 912-345-678</p>
+              </div>
+            </a>
           </div>
         </div>
       </section>
@@ -369,7 +732,7 @@
 
     <footer class="site-footer">
       <div class="container">
-        <p>&copy; 2025 陳品睿 · Frontend Dev. All rights reserved.</p>
+        <p>&copy; 2025 Hotsoul · Frontend Dev. All rights reserved.</p>
       </div>
     </footer>
   </div>
